@@ -99,3 +99,48 @@ function validAnagram(first, second) {
     }
     return true
 }
+
+
+//write a function called sameFrequency. Given 2 positive integers,
+//find out of the 2 numbers have the same frequency of digits
+//must have O(N) complexity
+
+function sameFrequency(num1, num2) {
+    let num1string = num1.toString()
+    let num2string = num2.toString()
+    let frequencyCounter1 = {}
+    let frequencyCounter2 = {}
+
+    for (let digit of num1string) {
+        frequencyCounter1[digit] = (frequencyCounter1[digit] || 0) + 1
+    }
+    for (let digit of num2string) {
+        frequencyCounter2[digit] = (frequencyCounter2[digit] || 0) + 1
+    }
+    for (let int in frequencyCounter1) {
+        if(!(int in frequencyCounter2)) {
+            return false
+        }
+        if (frequencyCounter1[int] !== frequencyCounter2[int]) {
+            return false
+        }
+    }
+
+    return true
+}
+
+// Implement a function called areThereDuplicates which accepts a variable
+// number of arguments, and checks wheter there are any duplicates among
+// the arguments passed in
+
+function areThereDuplicates() {
+    let collection = {}
+    for(let val in arguments) {
+        collection[arguments[val]] = (collection[arguments[val]]) |
+    }
+    for(let key in collection){
+        if(collection[key] > 1) return true
+    }
+    return false
+}
+

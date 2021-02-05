@@ -53,3 +53,44 @@ function countUniqueValues(array){
 }
 
 // O(n)
+
+
+
+// Implement a function called areThereDuplicates which accepts a variable
+// number of arguments, and checks wheter there are any duplicates among
+// the arguments passed in
+
+function areThereDuplicates(input) {
+
+    let inputArray = Array.from(input)
+    if (inputArray.length === 0) return false
+
+    let i = 0;
+
+    for (var j = 1; j < inputArray.length; j++) {
+        if (inputArray[i] === inputArray[j]) {
+            return true
+        }
+        
+            i++
+           
+        }
+        return false
+    }
+
+//Colt Steele solution:
+function areThereDuplicates(...args) {
+    // Two pointers
+    args.sort((a,b) => a > b);
+    let start = 0;
+    let next = 1;
+    while(next < args.length){
+      if(args[start] === args[next]){
+          return true
+      }
+      start++
+      next++
+    }
+    return false
+  }
+  
